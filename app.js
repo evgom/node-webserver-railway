@@ -20,10 +20,12 @@ hbs.registerPartials(__dirname + '/views/partials', err => {
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('home', {
-        nombre: 'Gabriel Osorio',
-        titulo: 'Curso de Node'
-    }); // Controlador
+    // res.render('home', {
+    //     nombre: 'Gabriel Osorio',
+    //     titulo: 'Curso de Node'
+    // }); // Controlador
+
+    res.sendFile(__dirname + '/public/'); // Instalar el paquete de react o angular en esta ruta.
 });
 
 
@@ -47,6 +49,7 @@ app.get('/elements', (req, res) => {
 app.get('/hola-mundo', (req, res) => {
     res.send('Hola mundo en su respectiva ruta');
 });
+
 
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/old/404.html');
